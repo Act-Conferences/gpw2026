@@ -1,0 +1,185 @@
+[% WRAPPER ui mainpage = 1 %]
+<!-- validate this with
+     https://search.google.com/structured-data/testing-tool?hl=de
+-->
+<script type='application/ld+json'>
+{
+  "@context": "http://www.schema.org",
+  "@type": "Event",
+  "name": "Deutscher Perl/Raku-Workshop, Frankfurt 2025",
+  "url": "https://act.yapc.eu/gpw2025/",
+  "description": "Der Deutsche Perl/Raku-Workshop ist eine jährlich in Deutschland stattfindende Konferenz von und für Entwickler der Programmiersprache Perl und Raku.",
+  "startDate": "2025-04-15T08:00",
+  "endDate": "2025-04-17T16:00",
+  "location": {
+    "@type": "Place",
+    "name": "tba",
+    "sameAs": "https://www.perl-raku-workshop.de/",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Frankenallee 111",
+      "addressLocality": "Frankfurt",
+      "postalCode": "60326",
+      "addressCountry": "Deutschland"
+    }
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "highPrice": 250,
+    "lowPrice": 50,
+    "offerCount": 3,
+    "offers": [{
+      "@type": "Offer",
+      "description": "Ticket",
+      "url": "https://act.yapc.eu/gpw2025/preise.html",
+      "price": "70",
+      "priceCurrency": "EUR"
+    },{
+      "@type": "Offer",
+      "description": "Firmenticket",
+      "url": "https://act.yapc.eu/gpw2025/preise.html",
+      "price": "250",
+      "priceCurrency": "EUR"
+    },{
+      "@type": "Offer",
+      "description": "Studententicket",
+      "url": "https://act.yapc.eu/gpw2025/preise.html",
+      "price": "50",
+      "priceCurrency": "EUR"
+    }]
+  }
+}
+</script>
+
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#workshop">Tell Me More</a>
+            </div>
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="workshop">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase"><t><en>27th German Perl/Raku Workshop</en><de>27. Deutscher Perl/Raku Workshop</de></h2>
+                    <h3 class="section-subheading text-muted"><t><en>Date and Place to be announced</en><de>Ort und Datum stehen noch nicht fest.</de></h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-6">
+
+                        <h4 class="my-3"><t><de>Über den Deutschen Perl/Raku-Workshop 2025</de><en>About the German Perl/Raku Workshop conference 2025</en></t></h4>
+                        <p class="text-muted">
+                             <t>
+                               <de>
+                                 Der Deutsche Perl/Raku-Workshop ist eine jährlich in Deutschland
+                                 stattfindende <strong>Open-Source-Konferenz für alle.</strong>.
+                               </de>
+                               <en>
+                                 The German Perl/Raku Workshop is an <strong>Open Source conference for everyone</strong>.
+                               </en>
+                             </t>
+                        </p>
+                        <p class="text-muted">
+                            <t>
+                                <en>Please observe the <a href="code_of_conduct.html">Code of Conduct</a>.</en>
+                                <de>Bitte beachte den <a href="code_of_conduct.html">Verhaltenskodex</a>.</de>
+                            </t>
+                        </p>
+                        <p class="text-muted">
+                            <t>
+                                <en>Most of the talks will be held in German, German talks will have English slides at least. English talks are welcome as well.</en>
+                                <de>Die meisten Vorträge werden auf Deutsch gehalten. Deutsche Vorträge
+                                    haben englische Folien. Vorträge in englischer Sprache sind ebenfalls willkommen.</de>
+                            </t>
+
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <a class="btn btn-primary btn-xl text-uppercase" href="register">
+                            <t>
+                                <en>Sign up for attendance</en>
+                                <de>Ich möchte teilnehmen</de>
+                            </t>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Portfolio Grid-->
+[%
+    news = global.news(3);
+    IF news.size > 2;
+        more = news.pop;
+    END;
+%]
+[% IF news.size %]
+      <section class="page-section" id="news">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase"><t><de>Aktuellste Neuigkeiten</de><en>Latest news</en></t>
+                        <a href="atom/[% global.request.language %].xml"><img src="images/feed-icon-14x14.png" alt="Atom feed"></a>
+                    </h2>
+                </div>
+[% FOREACH item = news %]
+                <div class="row">
+                    <div class="col-md-12">
+                      <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="news/[% item.news_id %]">[% item.title %]</a></h5>
+                            <h6 class="card-subtitle text-muted">[% date_format(item.datetime, 'date_short') %]</h6>
+                            <p class="card-text text-muted">[% item.content %]</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+[% END %]
+[% END %]
+[% IF more %]
+  <a href="news" class="btn btn-primary"><t><de>Alle Neuigkeiten</de><en>All news</en></t></a>
+
+</div>
+[% END %]
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About-->
+        <section class="page-section bg-light" id="sponsors">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase"><t><en>Sponsors</en><de>Sponsoren</de></t></h2>
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span><img src="images/perlservices.png" width="250px"></span>
+                        <h4 class="my-3"><a href="http://www.perl-services.de/" target="_blank">Perl-Services.de Renée Bäcker</a></h4>
+                        <p class="text-muted">
+        <t>
+          <de>
+Wir entwickeln Ihre Software in Perl<br />
+Suchen Sie nach einem verlässlichen Partner mit langjähriger Erfahrung in Perl?
+Möchten Sie einen festen Ansprechpartner für Ihre Anliegen in Perl haben? Dann
+sind Sie bei uns richtig. Wir unterstützen (nahezu) alles was mit Perl zu tun
+hat.
+          </de>
+          <en>
+We develop your software in Perl<br />
+Are you looking for a reliable partner with a long history of Perl experience?
+Would you like to have a fixed (and not constantly changing) contact person who
+is well-versed in anything relating to Perl? Or do you have another concern that
+requires Perl knowledge? Then you're at the right address: we support you in
+(nearly) everything to do with Perl.
+          </en>
+        </t>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="text-center">
+                    <h3 class="section-subheading text-muted"><a href="./sponsoring.html"><t><en>Become a sponsor</en><de>Sponsor werden</de></t></a></h3>
+                </div>
+        </section>
+[% END %]
