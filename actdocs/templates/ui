@@ -34,7 +34,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Workshop</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html#news"><t><de>Neuigkeiten</de><en>News</en></t></a></li>
                         <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="[% make_uri('schedule') %]"><t><de>Programm</de><en>Schedule</en></t></a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="[% make_uri('wiki') %]"><t><de>Wiki</de><en>Wiki</en></t></a></li> -->
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="[% make_uri('wiki') %]"><t><de>Wiki</de><en>Wiki</en></t></a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html#sponsors"><t><de>Sponsoren</de><en>Sponsors</en></t></a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="preise.html"><t><de>Preise</de><en>Entrance Fees</en></t></a></li>
 [% IF global.request.user %]
